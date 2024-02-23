@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css resources -->
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+
+    <!-- script resources -->
+    <script src="../static/files/js/bootstrap.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+    <script src="../static/files/js/script.js"></script>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <br>
+    
+    <div class="container">
+        <section class="row">
+            <div class="col-md-4">
+                <img src="../static/images/{{single[5]}}" alt="" width="300" height="300" class="img-thumbnail shadow p-2">
+                <br><br>
+                <h4>{{single[1]}}</h4>
+
+            </div>
+
+            <div class="col-md-8">
+                <p class="text-muted">{{single[2]}}</p>
+                <h5>KES {{single[3]}}</h5>
+                <b class="text-danger">Category: {{single[4]}}</b> <br>
+                <span class="badge bg-warning">Offer Ongoing!</span>
+                <br><br>
+
+                {% if session["key"] %}
+                <!-- Logged in -->
+                <div class="card shadow p-4">
+                    <h5>Product Checkout</h5>
+                    <form action="/mpesa" method="post">
+                        <input type="tel" name="phone" placeholder="Enter Phone 254XXXXXX" class="form-control"> <br>
+
+                        <input type="number" name="amount" class="form-control" value="{{single[3]}}" readonly> <br>
+
+                        <input type="submit" value="Lipa na Mpesa" class="btn btn-success">
+
+                    </form>
+                </div>
+                
+                {% else %}
+                <!-- Not Logged in -->
+                <h5>Please Sign in to purchase {{single[1]}}</h5>
+                <a href="/login" class="btn btn-dark">Sign in to Purchase</a>
+                {% endif %}    
+
+            </div>
+
+        </section>
+
+    </div>
+    <br>
+
+    {% include 'footer.html' %}
+    
+</body>
+</html>

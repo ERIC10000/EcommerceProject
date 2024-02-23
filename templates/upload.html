@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+</head>
+<body class="bg-secondary">
+
+    {% include 'navbar.html' %}
+    
+    <br>
+    <div class="container">
+        <h4 class="text-white">{{message}}</h4>
+        <section class="row">
+            <div class="col-md-6"> 
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="text" name="product_name" placeholder="Product Name" class="form-control"> <br>
+
+                    <textarea name="product_desc"  cols="30" rows="5" placeholder="Product Descrproduct_categoryiption" class="form-control"></textarea> <br>
+
+                    <input type="number" name="product_cost" placeholder="Product Cost" class="form-control"> <br>
+
+                    <select name="product_category" class="form-control">
+                        <option value="Electronics">Electronics</option>
+                        <option value="Furnitures">Furnitures</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Fashion">Fashion</option>
+                    </select> <br>
+
+                    <input type="file" name="product_image_name" class="form-control"> <br>
+
+                    <input type="submit" value="Upload Product" class="btn btn-dark">
+
+                </form>
+            </div>
+            <div class="col-md-6"></div>
+
+        </section>
+
+    </div>
+    <!-- end container -->
+    <br>
+
+    {% include 'footer.html' %}
+
+    
+</body>
+</html>

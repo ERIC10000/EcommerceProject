@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+
+    <!-- css resources -->
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+
+    <!-- script resources -->
+    <script src="../static/files/js/bootstrap.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+    <script src="../static/files/js/script.js"></script>
+
+</head>
+<body>
+    {% include 'navbar.html'%}
+    <br>
+    <div class="container">
+        <h5 class="text-primary">{{message}}</h5>
+        <h5 class="text-danger">{{warning}}</h5>
+        <h5 class="text-success">{{success}}</h5>
+        <section class="row">
+            <div class="col-md-6 card shadow pb-3 pt-3">
+                <form action="/register" method="post" enctype="multipart/form-data">
+                    <input type="text" name="username" placeholder="Enter Username" class="form-control"> <br>
+
+                    <input type="tel" name="phone" placeholder="Enter Phone +254XXXXXXX"  class="form-control"> <br>
+
+                    <input type="email" name="email" placeholder="Enter Email" class="form-control"> <br>
+
+                    <input type="file" name="user_image_name" class="form-control" required> <br>
+
+                    <input type="password" name="password" placeholder="Enter Password" class="form-control"> <br>
+
+                    <input type="password" name="confirm" placeholder="Confirm Password" class="form-control"> <br>
+
+                    <input type="submit" value="Register Information" class="btn btn-primary"> <br>
+
+                </form>
+            </div>
+            <div class="col-md-6"></div>
+
+        </section>
+        <br>
+        <h6><a href="/login">Already have Account?</a></h6>
+
+    </div>
+    
+</body>
+</html>
